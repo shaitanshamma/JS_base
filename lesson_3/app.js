@@ -1,0 +1,63 @@
+/* 1 task*/
+
+let i = 0
+while (i <= 100) {
+    console.log(i)
+    i++
+}
+
+/* 2 task and 3 task*/
+
+let cart = []
+
+for (let j = 0; j < 10; j++) {
+    let prod = {
+        title: 'title_' + `${j}`,
+        price: j * 100 + 0.99
+    }
+    cart.push(prod)
+}
+console.log(cart)
+
+let price = function countBasketPrice(cart) {
+    let elementsPrice = 0
+    for (const cartElement of cart) {
+        elementsPrice += cartElement.price
+    }
+    return elementsPrice
+}
+
+console.log('Сумма всех цен товаров в корзине = ' + price(cart) + ' у.е.')
+
+/*Альтернативный вариант*/
+//
+// function countBasketPrice(cart){
+//     let elementsPrice = 0
+//     for (const cartElement of cart) {
+//         elementsPrice+=cartElement.price
+//     }
+//    console.log('Сумма всех цен товаров в корзине = ' + elementsPrice + ' у.е.')
+// }
+// countBasketPrice(cart)
+
+
+/* 4 task */
+
+for (let j = 0; j <= 9; console.log(j), j++) {
+
+}
+
+/* 5 task*/
+
+for (let j = 1; j <= 20; j++) {
+    console.log("x".repeat(j))
+}
+
+/*Альтернативный вариант*/
+
+// let str = ''
+//
+// for (let j = 1; j <= 20; j++) {
+//     str += 'x'
+//     console.log(str)
+// }
