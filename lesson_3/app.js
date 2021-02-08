@@ -2,8 +2,35 @@
 
 let i = 0
 while (i <= 100) {
-    console.log(i)
-    i++
+    while (i < 6) {
+        if (i === 0 || i === 1 || i===4) {
+            i++
+            continue
+        } else {
+            console.log(i)
+            i++
+        }
+    }
+    if ((i % 2 === 0)) {
+        i++
+        continue
+    } else if ((i % 3 === 0)) {
+        i++
+        continue
+    } else if ((i % 5 === 0)) {
+        i++
+        continue
+    } else if (i === 7) {
+        console.log(i)
+        i++
+        continue
+    } else if ((i % 7 === 0)) {
+        i++
+        continue
+    } else {
+        console.log(i)
+        i++
+    }
 }
 
 /* 2 task and 3 task*/
