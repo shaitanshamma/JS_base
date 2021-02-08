@@ -39,7 +39,11 @@ console.log('Сумма всех цен товаров в корзине = ' + p
 //    console.log('Сумма всех цен товаров в корзине = ' + elementsPrice + ' у.е.')
 // }
 // countBasketPrice(cart)
+//
+// 2 -ой Альтернативный
 
+// let redPrice = cart.reduce((total, prod)=>total+=prod.price, 0)
+// console.log('С помощью reduce '+ redPrice);
 
 /* 4 task */
 
