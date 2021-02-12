@@ -10,21 +10,21 @@ function createObj(num) {
         for (let i = 0; i < newNum.length; i++) {
             if (newNum.length === 1) {
                 obj = {
-                    num: Number(newNum[newNum.length - 1]),
+                    hundreds: 0,
                     tens: 0,
-                    hundreds: 0
+                    num: Number(newNum[newNum.length - 1])
                 }
             } else if (newNum.length === 2) {
                 obj = {
+                    hundreds: 0,
                     num: Number(newNum[newNum.length - 1]),
-                    tens: Number(newNum[newNum.length - 2]),
-                    hundreds: 0
+                    tens: Number(newNum[newNum.length - 2])
                 }
             } else {
                 obj = {
-                    num: Number(newNum[newNum.length - 1]),
+                    hundreds: Number(newNum[0]),
                     tens: Number(newNum[newNum.length - 2]),
-                    hundreds: Number(newNum[0])
+                    num: Number(newNum[newNum.length - 1])
                 }
             }
         }
@@ -34,6 +34,27 @@ function createObj(num) {
 
 console.log(createObj(231))
 
+
+function createObj2(num) {
+    let obj2 = {}
+    if (num > 999) {
+        console.log('Слишком большое число')
+        return obj2
+    } else {
+        let hundreds = Math.floor(num / 100)
+        let tensWithNum = num % 100
+        let tens = Math.floor(tensWithNum / 10)
+        let numbers = tensWithNum % 10
+        obj2 = {
+            hundreds: hundreds,
+            tens: tens,
+            num: numbers
+        }
+        return obj2
+    }
+}
+
+console.log(createObj2(231));
 
 /* 2 task and 3 task*/
 
