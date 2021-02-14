@@ -65,3 +65,65 @@ function createNums(chess) {
     }
 }
 
+/*2 Task*/
+
+const cart = []
+const catalog = []
+
+class Product {
+    constructor(title, brand, type, size, price) {
+        this.title = title;
+        this.brand = brand;
+        this.type = type;
+        this.size = size;
+        this.price = price;
+    }
+}
+
+for (let j = 0; j < 10; j++) {
+    let prod = new Product('title_' + j, 'brand_' + j, 'type_' + j, 'size_' + j * 4, j * 1000)
+    cart.push(prod)
+    catalog.push(prod)
+}
+
+let cartDiv = document.querySelector('.cart')
+
+
+function checkCart(cart){
+    if(cart.length===0){
+        cartDiv.textContent = 'Корзина пуста'
+    }
+    else {
+        let average = cart.reduce((price, prod) => price + prod.price, 0)
+        cartDiv.textContent = `В корзине ${cart.length} товаров на ${average} рублей`
+    }
+ }
+
+ checkCart(cart)
+
+/*3 Task*/
+let catalogHtml = document.querySelector('#catalog')
+
+for (const prod of cart) {
+    drawProduct(prod)
+}
+
+function drawProduct(product){
+    let prodDiv = document.createElement('div')
+    prodDiv.className = 'prod'
+    catalogHtml.appendChild(prodDiv)
+    let prodTitle = document.createElement('h2')
+    prodTitle.className = 'title'
+    prodTitle.textContent = `${product.title}`
+    let prodBrand = document.createElement('h3')
+    prodBrand.className = 'brand'
+    prodBrand.textContent = `${product.brand}`
+    let prodImg = document.createElement('img')
+    prodImg.className = 'prod_img'
+    prodImg.src = ''
+    prodImg.alt = 'alt'
+    let prodPrice = document.createElement('p')
+    prodPrice.className = 'price'
+    prodPrice.textContent=`${product.price} руб.`
+    prodDiv.append(prodImg, prodTitle, prodBrand, prodPrice)
+}
