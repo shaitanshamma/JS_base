@@ -85,7 +85,7 @@ let totalPrice = function countBasketPrice(cart) {
     return elementsPrice
 }
 
-let average = cart.reduce((price, prod) => price += prod.price, 0)
+let average = cart.reduce((price, prod) => price + prod.price, 0)
 
 console.log('Сумма всех цен товаров в корзине = ' + average + ' у.е.')
 
