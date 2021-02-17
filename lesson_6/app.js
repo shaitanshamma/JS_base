@@ -36,16 +36,16 @@ function drawProduct(product) {
     let prodDiv = document.createElement('div')
     prodDiv.className = 'prod'
     catalogHtml.insertAdjacentHTML('beforeend',
-        `<div class="fature_item">
+        `<div class="fature_item" onclick="showModalWindow(${product.id})">
             <div class="overlay">
-                <a href="#">
+                <a>
                     <div class="add_to_card_block" onclick="addToCart(${product.id})">
                         <img src="img/cart.png" alt="">
                             <p>Add to Cart</p>
                     </div>
                 </a>
             </div>
-            <a href="#">
+            <a>
                 <img src=img/feature_${product.id + 1}.png alt="">
                     <h3>ELLERY X M'O CAPSULE</h3>
                     <p class="pgf">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym
@@ -114,7 +114,7 @@ function drawProductInCart(product) {
                                 <span class="product_decr">Quantity:</span>
                                 <input type="number" class="input_number">
                             </label>
-                            <a href="#" class="close_prd" onclick="removeItem(${product.id})">
+                            <a class="close_prd" onclick="removeItem(${product.id})">
                                 <i class="far fa-window-close product-close"></i>
                             </a>
                         </div>
@@ -123,15 +123,24 @@ function drawProductInCart(product) {
 
 function removeItem(id) {
     for (const prod of cart) {
-        if (prod.id === id && cart.length ===1) {
+        if (prod.id === id && cart.length === 1) {
             removeProduct(id)
             cart = []
-        }else {
-            cart = cart.splice(cart.findIndex(prod => prod.id === id) -1, 1)
+        } else {
             removeProduct(id)
+            cart.splice(cart.findIndex(prod => prod.id === id), 1)
         }
+        checkCart()
     }
     console.log(cart)
-    checkCart()
+}
+
+function showModalWindow(id){
+    let modal = document.querySelector(`.modal`)
+    modal.classList.toggle('open')
+    let imgSrc = document.querySelector('.modal > .img_modal')
+    imgSrc.src = `img/feature_${id + 1}.png`
+    cartDiv.classList.toggle('opacity')
+    catalogHtml.classList.toggle('opacity')
 }
 
