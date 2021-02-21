@@ -36,17 +36,17 @@ function drawProduct(product) {
     let prodDiv = document.createElement('div')
     prodDiv.className = 'prod'
     catalogHtml.insertAdjacentHTML('beforeend',
-        `<div class="fature_item" onclick="showModalWindow(${product.id})">
-            <div class="overlay">
+        `<div class="fature_item" >
+            <div class="overlay" id="modal_${product.id}">
                 <a>
-                    <div class="add_to_card_block" onclick="addToCart(${product.id})">
+                    <div class="add_to_card_block" id="add_to_cart_${product.id}">
                         <img src="img/cart.png" alt="">
                             <p>Add to Cart</p>
                     </div>
                 </a>
             </div>
-            <a>
-                <img src=img/feature_${product.id + 1}.png alt="">
+            <a >
+                <img src=img/feature_${product.id + 1}.png alt="" >
                     <h3>ELLERY X M'O CAPSULE</h3>
                     <p class="pgf">Known for her sculptural takes on traditional tailoring, Australian arbiter of cool Kym
                         Ellery teams up with Moda Operandi.</p>
@@ -56,20 +56,26 @@ function drawProduct(product) {
     )
 }
 
-function removeProduct(id) {
-    let prod = document.getElementById(`${id}`)
-    prod.remove()
-}
+catalogHtml.addEventListener('click', addProdToCart)
 
-function addToCart(id) {
+
+catalogHtml.addEventListener('click', showModal)
+
+function addProdToCart(e) {
     for (const prod of catalog) {
-        if (prod.id === id) {
+        if (e.target.id === `add_to_cart_${prod.id}`) {
             cart.push(prod)
             drawProductInCart(prod)
             checkCart()
         }
     }
 }
+
+function removeProduct(id) {
+    let prod = document.getElementById(`${id}`)
+    prod.remove()
+}
+
 
 let carItems = document.createElement("div")
 let productInCart = document.createElement("div")
@@ -114,11 +120,16 @@ function drawProductInCart(product) {
                                 <span class="product_decr">Quantity:</span>
                                 <input type="number" class="input_number">
                             </label>
-                            <a class="close_prd" onclick="removeItem(${product.id})">
-                                <i class="far fa-window-close product-close"></i>
+                            <a class="close_prd">
+                                <i class="far fa-window-close product-close" id="delete_${product.id}"></i>
                             </a>
                         </div>
                     </div>`)
+    carItems.addEventListener('click', (e) => {
+        if (e.target.id === `delete_${product.id}`) {
+            removeItem(product.id)
+        }
+    })
 }
 
 function removeItem(id) {
@@ -135,7 +146,7 @@ function removeItem(id) {
     console.log(cart)
 }
 
-function showModalWindow(id){
+function showModalWindow(id) {
     let modal = document.querySelector(`.modal`)
     modal.classList.toggle('open')
     let imgSrc = document.querySelector('.modal > .img_modal')
@@ -144,3 +155,10 @@ function showModalWindow(id){
     catalogHtml.classList.toggle('opacity')
 }
 
+function showModal(e) {
+    for (const prod of catalog) {
+        if (e.target.id === `modal_${prod.id}`) {
+            showModalWindow(prod.id)
+        }
+    }
+}
