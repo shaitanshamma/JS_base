@@ -45,12 +45,12 @@
     border: 1px solid #000;
     padding-top: 20px;
 }
-.prod{
-    width: 100px;
-    height: 100px;
-    border: 1px solid #000;
-    margin-bottom: 20px;
-}
+/*.prod{*/
+/*    width: 100px;*/
+/*    height: 100px;*/
+/*    border: 1px solid #000;*/
+/*    margin-bottom: 20px;*/
+/*}*/
 .title{
     color: darkblue;
 }
@@ -61,4 +61,104 @@
     width: 50px;
     height: 50px;
     border: 1px solid #000;
+}
+
+.fature_item {
+    width: 360px;
+    height: 581px;
+    background: #F8F8F8;
+    margin-bottom: 30px;
+}
+
+.pink_2 {
+    width: 360px;
+    height: 420px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #F7E4E2;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.fature_item h3 {
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    margin-top: 25px;
+}
+
+.pgf {
+    display: block;
+    width: 320px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5D5D5D;
+    margin-top: 13px;
+}
+
+.price {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F16D7F;
+    margin-top: 18px;
+}
+
+.fature_item p, h3 {
+    margin-left: 18px;
+}
+
+.overlay {
+    position: absolute;
+    visibility: hidden;
+    width: 360px;
+    height: 420px;
+    background: rgba(58, 56, 56, 0.86);
+    margin-bottom: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.fature_item:hover .overlay {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: opacity 0.5s ease-in-out 0s;
+    -o-transition: opacity 0.5s ease-in-out 0s;
+    transition: opacity 0.5s ease-in-out 0s;
+}
+
+.add_to_card_block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 138px;
+    height: 43px;
+    border: 1px solid #FFFFFF;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.add_to_card_block p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
 }
